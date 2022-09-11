@@ -17,7 +17,8 @@ function SalesCard() {
 
   const [sales, setSales] = useState<Sale[]>([]);
 
-  // Atualizacao de dados do banco ao front em tempo real 
+  // Atualizacao de dados do banco ao front em tempo real conforme modificacao 
+  // das variaveis que sao dependencias entre colchetes  
   useEffect(() => {
     
     const dmin = minDate.toISOString().slice(0, 10);
@@ -81,7 +82,7 @@ function SalesCard() {
                 <td>R$ {sale.amount.toFixed(2)}</td>
                 <td>
                   <div className="dsmeta-red-btn-container">
-                    < NotificationButton />
+                    < NotificationButton saleId={sale.id} />
                   </div>
                 </td>
               </tr>
